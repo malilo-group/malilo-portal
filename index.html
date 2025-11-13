@@ -19,7 +19,7 @@
   <button onclick="window.location.href='register.html'">Register</button>
 
   <script>
-    const supabase = supabase.createClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_ANON_KEY');
+    const supabase = supabase.createClient('https://vnuykduiqobpuufamniu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI');
 
     async function login() {
       const email = document.getElementById('email').value;
