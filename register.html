@@ -76,32 +76,32 @@
     <input type="password" id="password" placeholder="Password" />
     <input type="password" id="confirm" placeholder="Confirm Password" />
     <div class="error" id="error"></div>
-    <button onclick="register()">Register</button>
+    <button id="registerBtn">Register</button>
   </div>
 
   <script>
-    // Initialize Supabase first
-    const supabase = supabase.createClient(
-      'https://vnuykduiqobpuufamniu.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI'
-    );
+    window.onload = function () {
+      const supabase = supabase.createClient(
+        'https://vnuykduiqobpuufamniu.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI'
+      );
 
-    // Then define the register function
-    async function register() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const confirm = document.getElementById('confirm').value;
-      if (password !== confirm) {
-        document.getElementById('error').innerText = "Passwords do not match.";
-        return;
-      }
-      const { error } = await supabase.auth.signUp({ email, password });
-      if (error) {
-        document.getElementById('error').innerText = error.message;
-      } else {
-        window.location.href = 'index.html';
-      }
-    }
+      document.getElementById("registerBtn").onclick = async function register() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirm = document.getElementById('confirm').value;
+        if (password !== confirm) {
+          document.getElementById('error').innerText = "Passwords do not match.";
+          return;
+        }
+        const { error } = await supabase.auth.signUp({ email, password });
+        if (error) {
+          document.getElementById('error').innerText = error.message;
+        } else {
+          window.location.href = 'index.html';
+        }
+      };
+    };
   </script>
 </body>
 </html>
