@@ -80,11 +80,13 @@
   </div>
 
   <script>
+    // Initialize Supabase first
     const supabase = supabase.createClient(
       'https://vnuykduiqobpuufamniu.supabase.co',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI'
     );
 
+    // Then define the register function
     async function register() {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
