@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MALILO GROUP OIL MILLS</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body { font-family: 'Segoe UI'; background: #f5f7fa; text-align: center; padding: 50px; }
+    input, button { padding: 10px; margin: 10px; width: 200px; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>MALILO GROUP OIL MILLS</h1>
+  <h2>IGUNGA ZIBA</h2>
+  <input type="email" id="email" placeholder="Email"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <div class="error" id="error"></div>
+  <button onclick="login()">Login</button>
+  <button onclick="window.location.href='register.html'">Register</button>
+
+  <script>
+    const supabase = supabase.createClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_ANON_KEY');
+
+    async function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        document.getElementById('error').innerText = error.message;
+      } else {
+        window.location.href = 'dashboard.html';
+      }
+    }
+  </script>
+</body>
+</html>
