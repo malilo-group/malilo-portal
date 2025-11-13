@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - MALILO</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body { font-family: 'Segoe UI'; background: linear-gradient(to right, #e0eafc, #cfdef3); text-align: center; padding: 40px; }
+    .card { background: white; width: 250px; height: 150px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); display: inline-block; margin: 20px; padding: 20px; font-weight: bold; cursor: pointer; }
+    .card:hover { transform: scale(1.05); background: #ecf0f1; }
+    .logout { margin-top: 40px; font-size: 16px; color: #e74c3c; cursor: pointer; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>MALILO GROUP OIL MILLS</h1>
+  <h2>IGUNGA ZIBA</h2>
+
+  <div class="card" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf4Nr5bc5bCLNvyvtsqXo8rmgfX5NaX5mODnDhWbmjSQlDUPA/viewform')">MALILO (MAUZO, MANUNUZI NA MADENI)</div>
+  <div class="card" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScrGx6sg03FdvxIBbXClPj8AYe8bpnKOAKn--FbsMoRjvZkEA/viewform')">MALILO (ZA KUCHAMBUA)</div>
+  <div class="card" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdmRYmWywlXJqzQkq5Hb5qChHzKIbw_ehCuUXvSmca9WuHlug/viewform')">STOCK (MARA YA KWANZA)</div>
+  <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/1p6M7twZqyZRCBSBuyoRcBHVsKXfBZXCFH1hq0IlIen8/edit?resourcekey=&gid=97441479')">MALILO REPORTS</div>
+
+  <div class="logout" onclick="logout()">Logout</div>
+
+  <script>
+    const supabase = supabase.createClient('https://vnuykduiqobpuufamniu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI
+');
+    async function logout() {
+      await supabase.auth.signOut();
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
