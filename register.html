@@ -1,26 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register - MALILO</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <style>
-    body { font-family: 'Segoe UI'; background: #f5f7fa; text-align: center; padding: 50px; }
-    input, button { padding: 10px; margin: 10px; width: 200px; }
-    .error { color: red; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1, h2 {
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #2ecc71;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>MALILO GROUP OIL MILLS</h1>
-  <h2>IGUNGA ZIBA</h2>
-  <input type="email" id="email" placeholder="Email"><br>
-  <input type="password" id="password" placeholder="Password"><br>
-  <input type="password" id="confirm" placeholder="Confirm Password"><br>
-  <div class="error" id="error"></div>
-  <button onclick="register()">Register</button>
+  <div class="container">
+    <h1>MALILO GROUP OIL MILLS</h1>
+    <h2>IGUNGA ZIBA</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <input type="password" id="confirm" placeholder="Confirm Password" />
+    <div class="error" id="error"></div>
+    <button onclick="register()">Register</button>
+  </div>
 
   <script>
-    const supabase = supabase.createClient('https://vnuykduiqobpuufamniu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI
-');
+    const supabase = supabase.createClient(
+      'https://vnuykduiqobpuufamniu.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI'
+    );
 
     async function register() {
       const email = document.getElementById('email').value;
