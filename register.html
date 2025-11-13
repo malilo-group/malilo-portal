@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - MALILO</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body { font-family: 'Segoe UI'; background: #f5f7fa; text-align: center; padding: 50px; }
+    input, button { padding: 10px; margin: 10px; width: 200px; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>MALILO GROUP OIL MILLS</h1>
+  <h2>IGUNGA ZIBA</h2>
+  <input type="email" id="email" placeholder="Email"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <input type="password" id="confirm" placeholder="Confirm Password"><br>
+  <div class="error" id="error"></div>
+  <button onclick="register()">Register</button>
+
+  <script>
+    const supabase = supabase.createClient('https://vnuykduiqobpuufamniu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZudXlrZHVpcW9icHV1ZmFtbml1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTYzOTgsImV4cCI6MjA3ODYzMjM5OH0.r1XHTkWNvLOfU9q-tbN5_mJjIYqzOZ6MCYm49kEUCLI
+');
+
+    async function register() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm').value;
+      if (password !== confirm) {
+        document.getElementById('error').innerText = "Passwords do not match.";
+        return;
+      }
+      const { error } = await supabase.auth.signUp({ email, password });
+      if (error) {
+        document.getElementById('error').innerText = error.message;
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+</body>
+</html>
